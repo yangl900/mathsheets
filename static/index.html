@@ -50,19 +50,19 @@
                     <div class="p-3">
                         <div class="label"><label>Max number</label></div>
                         <div class="btn-group center" role="group" aria-label="Max number">
-                            <input type="radio" class="btn-check" name="btnmaxradio" value="10" id="btnmax1"
+                            <input type="radio" class="btn-check" name="btnmaxradio" value=10 id="btnmax1"
                                 autocomplete="off" checked>
                             <label class="btn btn-outline-primary" for="btnmax1">10</label>
 
-                            <input type="radio" class="btn-check" name="btnmaxradio" value="20" id="btnmax2"
+                            <input type="radio" class="btn-check" name="btnmaxradio" value=20 id="btnmax2"
                                 autocomplete="off">
                             <label class="btn btn-outline-primary" for="btnmax2">20</label>
 
-                            <input type="radio" class="btn-check" name="btnmaxradio" value="100" id="btnmax3"
+                            <input type="radio" class="btn-check" name="btnmaxradio" value=100 id="btnmax3"
                                 autocomplete="off">
                             <label class="btn btn-outline-primary" for="btnmax3">100</label>
 
-                            <input type="radio" class="btn-check" name="btnmaxradio" value="1000" id="btnmax4"
+                            <input type="radio" class="btn-check" name="btnmaxradio" value=1000 id="btnmax4"
                                 autocomplete="off">
                             <label class="btn btn-outline-primary" for="btnmax4">1000</label>
                         </div>
@@ -145,20 +145,26 @@
         }
 
         function subgen(max) {
-            n = nextInt(max)
+            n = nextInt(max) + 1
             m = nextInt(n)
             return "<div class='eq'>" + n + " - " + m + " =</div>"
         }
 
         function multiplygen(max) {
             n = nextInt(max)
-            m = nextInt(max / n)
+            m = nextInt(max)
             return "<div class='eq'>" + n + " &times; " + m + " =</div>"
         }
 
         function divgen(max) {
-            n = nextInt(max)
-            m = nextInt(max / n)
+            if (max == 10) {
+                n = Math.max(nextInt(5), 1)
+                m = Math.max(nextInt(4), 1)
+            } else {
+                n = Math.max(nextInt(max), 1)
+                m = Math.max(nextInt(max * 10 / (n+1)), 1)
+            }
+            
             return "<div class='eq'>" + n * m + " &divide; " + m + " =</div>"
         }
 
@@ -169,7 +175,7 @@
                 funcs.push(window[$(ops[i]).val()])
             }
 
-            max = $('input[name=btnmaxradio]:checked').val()
+            max = parseInt($('input[name=btnmaxradio]:checked').val())
             index = 0
             $("#col1").html("")
             $("#col2").html("")
@@ -182,7 +188,7 @@
         }
 
         function nextInt(max) {
-            return Math.floor(Math.random() * max);
+            return Math.floor(Math.random() * (max + 1));
         }
     </script>
 </body>
