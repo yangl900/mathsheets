@@ -1,0 +1,24 @@
+{
+  "name": "mathsheets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "bootstrap": "^5.1.1",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yangl900/mathsheets.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yangl900/mathsheets/issues"
+  },
+  "homepage": "https://github.com/yangl900/mathsheets#readme"
+}
