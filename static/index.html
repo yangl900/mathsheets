@@ -20,6 +20,10 @@
             .noPrint {
                 display: none;
             }
+
+            body{
+                -webkit-text-size-adjust: 90%;
+            }
         }
 
         .eq {
@@ -92,9 +96,9 @@
                     <div class="p-3"></div>
                 </div>
                 <div class="col-6">
-                    <div class="p-3 d-grid gap-2"><button type="button" class="btn btn-primary"
-                            id="btnPrint">Print</button></div>
                 </div>
+                <div class="p-3 d-grid gap-2"><button type="button" class="btn btn-primary"
+                    id="btnPrint">Print</button></div>
             </div>
         </div>
     </div>
@@ -158,8 +162,8 @@
 
         function divgen(max) {
             if (max == 10) {
-                n = Math.max(nextInt(5), 1)
-                m = Math.max(nextInt(4), 1)
+                n = Math.max(nextInt(max), 1)
+                m = Math.max(nextInt(max), 1)
             } else {
                 n = Math.max(nextInt(max), 1)
                 m = Math.max(nextInt(max * 10 / (n+1)), 1)
@@ -181,9 +185,9 @@
             $("#col2").html("")
             $("#col3").html("")
             for (var i = 0; i < 15; i++) {
-                $("#col1").append(funcs[i % (funcs.length)](max))
-                $("#col2").append(funcs[i % (funcs.length)](max))
-                $("#col3").append(funcs[i % (funcs.length)](max))
+                $("#col1").append(funcs[nextInt(funcs.length - 1)](max))
+                $("#col2").append(funcs[nextInt(funcs.length - 1)](max))
+                $("#col3").append(funcs[nextInt(funcs.length - 1)](max))
             }
         }
 
